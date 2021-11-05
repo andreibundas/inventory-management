@@ -6,7 +6,6 @@ public class Operation {
 
 
 
-
     public String getName() {
         return name;
     }

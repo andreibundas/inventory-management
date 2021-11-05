@@ -7,10 +7,22 @@ public class Inventory {
 
     private Operation[] operations = new Operation[4];
 
+    private Controller controller = new Controller();
+
     public void start() {
         System.out.println("Welcome !");
 
         configureOperations();
+
+        Operation selectedOperation = getSelectedOperation();
+
+        System.out.println("You have selected : " + selectedOperation.getName());
+
+    }
+
+    private Operation getSelectedOperation() {
+        int operationNumberFromUser = controller.getOperationNumberFromUser();
+        return operations[operationNumberFromUser - 1];
 
     }
 
@@ -43,3 +55,4 @@ public class Inventory {
     }
 
 }
+
