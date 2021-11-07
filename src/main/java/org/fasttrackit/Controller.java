@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Controller {
 
-
+//to do : repair - Configure operation issue --
     public int getOperationNumberFromUser() {
         System.out.println("Please select an operation ");
         Scanner scanner = new Scanner(System.in);
         int opNr = scanner.nextInt();
-        if (opNr == 1 | opNr == 2 | opNr == 3 | opNr == 4 ) {
+        if (opNr == 1 | opNr == 2 | opNr == 3 | opNr == 4 | opNr ==5 ) {
             return opNr;
         } else {
             System.out.println("invalid option");

@@ -2,10 +2,11 @@ package org.fasttrackit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Inventory {
 
-    private Operation[] operations = new Operation[4];
+    private Operation[] operations = new Operation[5];
     private List<Product> products = new ArrayList<>();
 
     private Controller controller = new Controller();
@@ -13,26 +14,57 @@ public class Inventory {
     public void start() {
         System.out.println("Welcome !");
 
-
-        configureOperations();
-
         do {
 
-            Operation selectedOperation = getSelectedOperation();
+            configureOperations();
 
-            if (selectedOperation.equals(1)) {
+            int optionUser = controller.getOperationNumberFromUser();
+            System.out.println(" optionUser: " + optionUser);
 
-                System.out.println("You have selected : " + selectedOperation.getName());
 
-                createProducts();
+//            Operation selectedOperation = getSelectedOperation();
+//
+//            System.out.println("You have selected : " + selectedOperation.getName());
 
-                System.out.println("Created Product: " + products);
+//            char optionUser = (char) controller.getOperationNumberFromUser();
 
-            } else if (selectedOperation.equals(3)){
-                deleteProduct();
+
+            switch (optionUser) {
+
+                case 1:
+
+                    createProducts();
+
+                    System.out.println("Created Product: " + products);
+                    break;
+
+                case 2:
+
+                    System.out.println("Update Product: ");
+                    break;
+
+                case 3:
+                    deleteProduct();
+                    System.out.println("Delete Product: ");
+                    break;
+
+                case 4:
+                    System.out.println("Read existing products in products List : " + products);
+                    break;
+
+                case 5:
+
+                    System.out.println("Exit: ");
+                    break;
+
+
+                default:
+                    System.out.println("Invalid option. Please try again. ");
             }
 
-        } while (getSelectedOperation().equals(4));
+        }
+        while (controller.getOperationNumberFromUser() != 5);
+        System.out.println("While: " + controller.getOperationNumberFromUser());
 
     }
 
@@ -57,6 +89,7 @@ public class Inventory {
     }
 
     private void configureOperations() {
+        System.out.println("Configure operations");
         Operation operation1 = new Operation();
         operation1.setName("Add Products");
         operations[0] = operation1;
@@ -70,8 +103,12 @@ public class Inventory {
         operations[2] = operation3;
 
         Operation operation4 = new Operation();
-        operation4.setName(("Exit"));
+        operation4.setName(("Print existing Products"));
         operations[3] = operation4;
+
+        Operation operation5 = new Operation();
+        operation5.setName(("Exit"));
+        operations[4] = operation5;
 
         displayOperations();
     }
@@ -85,8 +122,10 @@ public class Inventory {
     }
 
     private void deleteProduct() {
-        System.out.println(" Delete product");
-        products.remove(controller.getIdDeleteProductFromUser() - 1);
+        System.out.println("Delete product :");
+        int deleteProductFromUser = controller.getIdDeleteProductFromUser();
+
+        products.remove(deleteProductFromUser - 1);
     }
 
 }
