@@ -4,8 +4,6 @@ public class Operation {
 
     private String name;
 
-
-
     public String getName() {
         return name;
     }

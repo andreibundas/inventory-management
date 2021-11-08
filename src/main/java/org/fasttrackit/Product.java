@@ -2,11 +2,9 @@ package org.fasttrackit;
 
 public class Product {
 
-    private int idProduct;   // Inventory product id
+    private int idProduct;
     private String productName;
     private int productPrice;
-    //    String productCategory;
-//    int quantity;
 
 
     public int getIdProduct() {

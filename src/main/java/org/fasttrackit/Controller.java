@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Controller {
 
-//to do : repair - Configure operation issue --
     public int getOperationNumberFromUser() {
-        System.out.println("Please select an operation ");
+        System.out.println("Please select operation :");
         Scanner scanner = new Scanner(System.in);
         int opNr = scanner.nextInt();
         if (opNr == 1 | opNr == 2 | opNr == 3 | opNr == 4 | opNr ==5 ) {
@@ -24,7 +23,6 @@ public class Controller {
         return scanner.nextInt();
     }
 
-
     public String getProductNameFromUser() {
             System.out.println("Please enter the name of product :");
             Scanner scanner = new Scanner(System.in);
@@ -37,10 +35,15 @@ public class Controller {
         return scanner.nextInt();
     }
 
+    public int getIdUpdatedProductFromUser() {
+        System.out.println("Please indicate the id of the product you want to update : ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+
     public int getIdDeleteProductFromUser() {
         System.out.println("Please indicate the id of the product you want to delete : ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-
 }
